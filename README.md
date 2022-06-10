@@ -9,6 +9,10 @@ A middleman tool which allows you to use the Dragon Age Origins toolset build of
 5) (Optional) Add a .txt file placed next to your sound file with the same name in the data folder, containing a read out of your voice lines for better lipsync generation
 6) Import your sound using tool.exe with either the unit_dialog, cinematic_dialog or mission_dialog sound classes
 
+# Example
+1) Move cave_johnson.txt & cave_johnson.wav from the SampleData folder into H3EK\data
+2) Run tool.exe sound-single "cave_johnson.wav" cinematic_dialog "fmod\pc\english.fsb"
+
 # How does this work?
 - Development studios were often given access to FaceFX's source code when they purchased a license, so these studios would sometimes make modifications.
 - Bungie added the exportAnim command to their build, which would export the facial animation data to their proprietary .fxx format.
