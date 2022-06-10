@@ -2,7 +2,7 @@
 A middleman tool which allows you to use the Dragon Age Origins toolset build of FaceFX with the Halo 3 Editing Kit for lipsync animation generation.
 
 # Usage
-1) Download the Dragon Age Origins toolset
+1) Download the [Dragon Age Origins toolset](http://lvlt.bioware.cdn.ea.com/bioware/u/f/eagames/bioware/dragonage/toolset/DragonAgeToolset1.01Setup.exe)
 2) Copy the contents of DragonAgeToolset\FaceFX to H3EK\bin\FaceFX
 3) Rename FxStudio.exe to FxStudioOriginal.exe
 4) Copy the H3EK-FaceFXWrapper files into your H3EK\bin\FaceFX folder (make sure this includes the bungie_facefx_actors folder!)
