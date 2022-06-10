@@ -59,10 +59,11 @@ namespace H3EK_FaceFX_Wrapper
             while (!File.Exists(ltfPath));
             
             // load and convert the LTF file
-            FXX_File FXX = new FXX_File(ltfPath);
-            // write FXX file
-            FXX.WriteTo(ltfPath.Replace(".ltf", ".fxx"));
+            FXX_File FXX = new FXX_File();
+            if (FXX.loadLTF(ltfPath)) // write FXX if the LTF was loaded successfully
+                FXX.WriteTo(ltfPath.Replace(".ltf", ".fxx"));
             File.Delete(ltfPath);
+            
         }
     }
 }

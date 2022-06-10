@@ -40,7 +40,17 @@ namespace H3EK_FaceFX_Wrapper.Models
     class FXX_File
     {
         private s_facial_animation_file file = new s_facial_animation_file { facial_animation_curves = new s_raw_facial_animation_curve[34] };
-        public FXX_File(string ltfPath)
+        StreamWriter logWriter;
+        public FXX_File()
+        {
+            logWriter = File.CreateText("FaceFXWrapper.log");
+        }
+        ~FXX_File()
+        {
+            logWriter.Close();
+            logWriter.Dispose();
+        }
+        public bool loadLTF(string ltfPath)
         {
             // set header info
             file.export_version = 4;
@@ -57,7 +67,6 @@ namespace H3EK_FaceFX_Wrapper.Models
             file.unknown2 = 0;
             file.unknown3 = 0;
 
-            using (StreamWriter logWriter = File.CreateText("FaceFXWrapper.log"))
             using (StreamReader reader = new StreamReader(File.OpenRead(ltfPath), Encoding.UTF8))
             {
                 // verify we're looking at a valid LTF file
@@ -66,8 +75,8 @@ namespace H3EK_FaceFX_Wrapper.Models
                     ltfIsValid = true;
                 if (!ltfIsValid)
                 {
-                    logWriter.WriteLine("The LTF file was invalid!");
-                    return;
+                    logWriter.WriteLine("The input LTF file is invalid!");
+                    return false;
                 }
 
                 // skip to curve data
@@ -88,8 +97,8 @@ namespace H3EK_FaceFX_Wrapper.Models
                     ECurveType curveType;
                     if (!Enum.TryParse(curveName, out curveType))
                     {
-                        logWriter.WriteLine("Unrecognised curve type!");
-                        return;
+                        logWriter.WriteLine($"Unrecognised curve type: {curveName}");
+                        return false;
                     }
 
                     reader.ReadLine();
@@ -141,6 +150,7 @@ namespace H3EK_FaceFX_Wrapper.Models
                 file.start_time = lowestTime;
                 file.end_time = highestTime;
             }
+            return true;
         }
         public void WriteTo(string filePath)
         {
@@ -160,6 +170,13 @@ namespace H3EK_FaceFX_Wrapper.Models
 
                 for (int curveIndex = 0; curveIndex < (int)ECurveType.KCurveCount; curveIndex++)
                 {
+                    // the key tagblock cannot have more than 1024 elements otherwise tool will crash, so we'll have to clamp it
+                    if (file.facial_animation_curves[curveIndex].key_count > 1024)
+                    {
+                        file.facial_animation_curves[curveIndex].key_count = 1024;
+                        logWriter.WriteLine($"Curve '{((ECurveType)curveIndex).ToString()}' has > 1024 keys! Only the first 1024 will be written to the FXX file. Results may be cut-off in game.");
+                    }
+
                     writer.Write(file.facial_animation_curves[curveIndex].key_count);
                     writer.Write(file.facial_animation_curves[curveIndex].unknown);
                     for (int keyIndex = 0; keyIndex < file.facial_animation_curves[curveIndex].key_count; keyIndex++)
@@ -171,6 +188,7 @@ namespace H3EK_FaceFX_Wrapper.Models
                     }
                 }
             }
+            logWriter.Dispose();
         }
     }
 }
