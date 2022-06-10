@@ -13,7 +13,7 @@ Please mind the gnarly text parsing code.
 # Example
 1) Move cave_johnson.txt & cave_johnson.wav from the SampleData folder into H3EK\data
 2) Run tool.exe sound-single "cave_johnson.wav" cinematic_dialog "fmod\pc\english.fsb"
-
+[![H3EK Full Lipsync Generation on YouTube](https://i3.ytimg.com/vi/kjMR_M8xbb4/maxresdefault.jpg)](http://www.youtube.com/watch?v=kjMR_M8xbb4 "H3EK Full Lipsync Generation")
 # How does this work?
 - Development studios were often given access to FaceFX's source code when they purchased a license, so these studios would sometimes make modifications.
 - Bungie added the exportAnim command to their build, which would export the facial animation data to their proprietary .fxx format.
