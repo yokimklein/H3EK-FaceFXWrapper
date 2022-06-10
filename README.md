@@ -1,6 +1,7 @@
 # H3EK-FaceFXWrapper
 A middleman tool which allows you to use the Dragon Age Origins toolset build of FaceFX with the Halo 3 Editing Kit for lipsync animation generation.
 
+Please mind the gnarly text parsing code.
 # Usage
 1) Download the [Dragon Age Origins toolset](http://lvlt.bioware.cdn.ea.com/bioware/u/f/eagames/bioware/dragonage/toolset/DragonAgeToolset1.01Setup.exe)
 2) Copy the contents of DragonAgeToolset\FaceFX to H3EK\bin\FaceFX
