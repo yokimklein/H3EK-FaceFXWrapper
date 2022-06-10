@@ -10,6 +10,10 @@ Please mind the gnarly text parsing code.
 5) (Optional) Add a .txt file placed next to your sound file with the same name in the data folder, containing a read out of your voice lines for better lipsync generation
 6) Import your sound using tool.exe with either the unit_dialog, cinematic_dialog or mission_dialog sound classes
 
+# Limitations
+- Tool cannot import more than 1024 curve keys, so the wrapper will only write the first 1024 to a FXX file. This should only be an issue for very long sounds (greater than a few minutes in length). Avoid using lengthy sounds for lipsync.
+- Check the FaceFXWrapper.log file if you suspect there has been an issue with the lipsync generation.
+
 # Example
 1) Move cave_johnson.txt & cave_johnson.wav from the SampleData folder into H3EK\data
 2) Run tool.exe sound-single "cave_johnson.wav" cinematic_dialog "fmod\pc\english.fsb"
