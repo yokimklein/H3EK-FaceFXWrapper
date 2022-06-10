@@ -42,6 +42,7 @@ namespace H3EK_FaceFX_Wrapper
             // write commands to file to use with FaceFX's exec arg
             using (StreamWriter sw = File.CreateText("commands.fxl"))
             {
+                sw.WriteLine("robobrad -load default"); // DAO FxStudio will crash if robobrad isn't loaded
                 sw.WriteLine("loadActor " + loadactorArgs);
                 sw.WriteLine("analyze " + analyzeArgs);
                 sw.WriteLine("exportLTF " + exportanimArgs);
