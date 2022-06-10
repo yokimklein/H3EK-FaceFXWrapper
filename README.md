@@ -24,3 +24,7 @@ Please mind the gnarly text parsing code.
 - The only publicly available version of old FaceFX I could find from around Halo 3's development was a build found in the Dragon Age Origins toolset. It lacks the exportAnim command, but it still allows you to export to the older text based LTF format which Halo 2 used.
 - FXX files are just LTF files in raw binary form, except they don't contain any phoneme timing data.
 - The FaceFXWrapper tool sits in place of the FxStudio executable, so when tool.exe gives it commands to generate lipsync data with, the wrapper intercepts it and replaces the exportAnim command with exportLTF. Once FaceFX generates the LTF file, the wrapper converts the LTF to the FXX format for tool to use.
+
+# Advanced usage
+- Use "FxStudio.exe -convertLTF <path>" to convert an LTF file to FXX
+- Set the file paths in FaceFXWrapper.cfg to use a custom LTF or FXX file when importing a sound. This will override the FXX or LTF files used as long as the paths are set. Make sure to clear the config after use

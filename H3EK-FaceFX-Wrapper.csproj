@@ -7,4 +7,8 @@
     <AssemblyName>FxStudio</AssemblyName>
   </PropertyGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="echo D|xcopy /Y /E &quot;$(SolutionDir)bungie_facefx_actors&quot; &quot;$(SolutionDir)$(OutDir)bungie_facefx_actors&quot;&#xD;&#xA;echo D|xcopy /Y /E &quot;$(SolutionDir)SampleData&quot; &quot;$(SolutionDir)$(OutDir)SampleData&quot;&#xD;&#xA;copy /Y &quot;$(SolutionDir)FaceFXWrapper.cfg&quot; &quot;$(SolutionDir)$(OutDir)FaceFXWrapper.cfg&quot;" />
+  </Target>
+
 </Project>
