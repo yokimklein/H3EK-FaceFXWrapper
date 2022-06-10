@@ -17,7 +17,6 @@ namespace H3EK_FaceFX_Wrapper
             int pFrom = commands.IndexOf("loadActor ") + "loadActor ".Length;
             int pTo = commands.IndexOf(";");
             string loadactorArgs = commands.Substring(pFrom, pTo - pFrom);
-            loadactorArgs = loadactorArgs.Replace("default.fxa", "johnson.fxa");
             loadactorArgs = loadactorArgs.Replace("-file ", "-file \"");
             loadactorArgs += "\"";
 

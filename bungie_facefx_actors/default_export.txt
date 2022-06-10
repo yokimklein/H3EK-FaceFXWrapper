@@ -1,0 +1,23 @@
+// Comment lines are ignored
+// the format is:
+// pose_name  frame number
+// Make sure there is only one space.
+// The semi-colon is optional. 
+// For pose names with spaces, make sure the name is enclosed in quotes.
+// For pose names without spaces, the quotes are optional.
+Silence 5;
+Eat 6;
+Earth 7;
+If 8;
+Ox 9;
+Oat 10;
+Wet 11;
+Size 12;
+Church 13;
+Fave 14;
+Though 15;
+Told 16;
+Bump 17;
+New 18;
+Roar 19;
+Cage 20;
