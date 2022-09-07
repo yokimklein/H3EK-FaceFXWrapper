@@ -1,5 +1,6 @@
 # H3EK-FaceFXWrapper
-A middleman tool which allows you to use the Dragon Age Origins toolset build of FaceFX with the Halo 3 Editing Kit for lipsync animation generation.
+A middleman tool which allows you to use the Dragon Age Origins toolset build of FaceFX with the Halo 3 & Halo Reach Editing Kits to generate lipsync animations.
+
 
 Please mind the gnarly text parsing code.
 # Usage
