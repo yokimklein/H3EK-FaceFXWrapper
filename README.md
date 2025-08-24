@@ -3,13 +3,14 @@ A middleman tool which allows you to use the Dragon Age Origins toolset build of
 
 
 Please mind the gnarly text parsing code.
-# Usage
+# Setup Guide
 1) Download the [Dragon Age Origins toolset](http://lvlt.bioware.cdn.ea.com/bioware/u/f/eagames/bioware/dragonage/toolset/DragonAgeToolset1.01Setup.exe)
-2) Copy the contents of DragonAgeToolset\FaceFX to H3EK\bin\FaceFX
-3) Rename FxStudio.exe to FxStudioOriginal.exe
-4) Copy the H3EK-FaceFXWrapper files into your H3EK\bin\FaceFX folder (make sure this includes the bungie_facefx_actors folder!)
-5) (Optional) Add a .txt file placed next to your sound file with the same name in the data folder, containing a read out of your voice lines for better lipsync generation
-6) Import your sound using tool.exe with either the unit_dialog, cinematic_dialog or mission_dialog sound classes
+2) Download and install the [.NET 5.0 runtime](https://dotnet.microsoft.com/en-us/download/dotnet/5.0/runtime?cid=getdotnetcore&os=windows&arch=x64)
+3) Copy the contents of DragonAgeToolset\FaceFX to H3EK\bin\FaceFX
+4) Rename FxStudio.exe to FxStudioOriginal.exe
+5) Copy the H3EK-FaceFXWrapper files into your H3EK\bin\FaceFX folder (make sure this includes the bungie_facefx_actors folder!)
+6) (Optional) Add a .txt file placed next to your sound file with the same name in the data folder, containing a read out of your voice lines for better lipsync generation
+7) Import your sound using tool.exe with either the unit_dialog, cinematic_dialog or mission_dialog sound classes
 
 # Limitations
 - Tool cannot import more than 1024 curve keys, so the wrapper will only write the first 1024 to a FXX file. This should only be an issue for very long sounds (greater than a few minutes in length). Avoid using lengthy sounds for lipsync.
